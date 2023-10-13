@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-    <menu>
-        <add id="Wiki_BigCameraWorkshop::workshop" title="Workshop" module="Wiki_BigCameraWorkshop" sortOrder="10" resource="Wiki_BigCameraWorkshop::workshop"/>
-        <add id="Wiki_BigCameraWorkshop::workshop_brand" title="Brand" module="Wiki_BigCameraWorkshop" sortOrder="60" action="workshop/brand/index"  parent="Wiki_BigCameraWorkshop::workshop" resource="Wiki_BigCameraWorkshop::workshop_brand"/>
-    </menu>
-</config>

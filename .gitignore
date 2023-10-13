@@ -43,7 +43,7 @@
 /var/package/*
 !/var/package/*.xml
 
-/vendor/*
+/vendor/
 !/vendor/.htaccess
 /generated/*
 !/generated/.htaccess

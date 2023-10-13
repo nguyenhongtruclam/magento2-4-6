@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Wiki_Anoway::menu" title="Wiki Anoway"
+         module="Wiki_Anoway" sortOrder="10" 
+         resource="Wiki_Anoway::menu"/>
+         <add id="Wiki_Anoway::grid_menu" title="Grid Menu"
+         module="Wiki_Anoway" sortOrder="10"
+         action="anoway/grid/index" resource="Wiki_Anoway::grid_menu" 
+         parent="Wiki_Anoway::menu"/>
+    </menu>
+</config>

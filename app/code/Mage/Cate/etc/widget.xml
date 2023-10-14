@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="categories_images"
+            class="Mage\Cate\Block\Categories"
+            is_email_compatible="true">
+        <label translate="true">Mage Category image</label>
+        <description translate="true">This will display the subcategories and images from the parent category</description>
+        <parameters>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Text</label>
+            </parameter>
+            <parameter name="limit" xsi:type="text" visible="true">
+                <label translate="true">Limit</label>
+                <description translate="true">This will display maximum item(default:12 item)</description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
+

@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var \Mage\Cate\Block\Categories $block
+ */
+
+$categories = $block->getChildrenCategories();
+
+?>
+
+
+
+<div class="category-footer">
+    <h2 class='category-title'><?=$block->escapeHtml(__($block->getTitle()))?></h2>
+    <div class="content-block">
+        <?php foreach ($categories as $category): ?>
+            <div class="box-category col-xs-3 col-sm-3 col-md-2 col-lg-2 p-2 p-sm-3">
+                <a href="<?= $category->getUrl() ?>" class="a-hover-none a-hover-op">
+                <figure class='a-image' style='padding-bottom: 100%;'>
+                    <img src="<?= $category->getImageUrl() ?>">
+                </figure>
+                <h4 class="parent-category-title flex-center">
+                    <?= $category->getName() ?>
+                </h4>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

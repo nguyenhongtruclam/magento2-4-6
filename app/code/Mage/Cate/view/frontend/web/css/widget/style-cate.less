@@ -1,0 +1,89 @@
+.columns {
+    overflow-x:hidden;
+}
+.category-widget {
+    .container {
+        width: 1240px;
+        .category-title {
+            font-size: 2rem;
+            font-weight: 500;
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+    
+        .category-item {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            @media (min-width: 414px)
+            {
+                .item {
+                    width: 25%;
+                }
+                // .item:nth-child(n + 9)
+                // {
+                //     display: none;
+                // }
+            }
+            @media (min-width: 1240px) 
+            {
+                .item {
+                    width: 16.66666667%;
+                    
+                }
+            }
+            .item {
+                width: 20%;
+                text-align: center;
+                padding: 0;
+                margin-bottom: 20px;
+                a {
+                    font-size: 1.6rem;
+                    color: #222;
+                    word-break: break-all;
+                    font-weight: 500;
+    
+                    h4 {
+                        margin: 0;
+    
+                    }
+                }
+            }
+    
+            .item:nth-child(n + 11)
+            {
+                display: none;
+            }
+        }
+    
+        .view-more {
+            text-align: center;
+            
+            button {
+                font-size: 1.6rem;
+                font-weight: 600;
+                position: relative;
+                padding: 10px 50px 10px 30px;
+                border-radius: 10px;
+            }
+    
+            button.down:after {
+                content: url(../../images/icons/arrow.svg);
+                display: block;
+                transform: rotate(180deg) scale(0.7);
+                position: absolute;
+                top: 0;
+                right: 15px;
+            }
+
+            button.up:after{
+                content: url(../../images/icons/arrow.svg);
+                display: block;
+                transform: rotate(360deg) scale(0.7);
+                position: absolute;
+                top: 3px;
+                right: 15px;
+            }
+        }
+    }
+}

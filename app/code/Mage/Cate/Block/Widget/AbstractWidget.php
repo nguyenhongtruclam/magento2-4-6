@@ -8,16 +8,11 @@ namespace Mage\Cate\Block\Widget;
 
 use Magento\Catalog\Model\ResourceModel\AbstractResource;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Mage\Cate\Helper\Data as ThemeData;
 
 class AbstractWidget extends \Magento\Catalog\Block\Product\AbstractProduct implements \Magento\Widget\Block\BlockInterface
 {
     const TITLE = 'Popular category';
 
-    /**
-     * @var ThemeData
-     */
-    protected $themeData;
 
     /**
      * Prepared anchor text
@@ -39,11 +34,9 @@ class AbstractWidget extends \Magento\Catalog\Block\Product\AbstractProduct impl
      */
     public function __construct(
         \Magento\Catalog\Block\Product\Context $context,
-        ThemeData                              $themeData,
         AbstractResource                       $entityResource = null
     )
     {
-        $this->themeData = $themeData;
         $this->_entityResource = $entityResource;
         parent::__construct($context);
     }
@@ -55,23 +48,6 @@ class AbstractWidget extends \Magento\Catalog\Block\Product\AbstractProduct impl
     public function getTitle()
     {
         return $this->getLabel();
-    }
-
-    /**
-     * Parse id_path
-     *
-     * @param string $idPath
-     * @return array
-     * @throws \RuntimeException
-     */
-    public function parseIdPath($idPath): array
-    {
-        $rewriteData = explode('/', $idPath);
-
-        if (!isset($rewriteData[0]) || !isset($rewriteData[1])) {
-            throw new \RuntimeException('Wrong id_path structure.');
-        }
-        return $rewriteData;
     }
 
     /**
@@ -110,8 +86,8 @@ class AbstractWidget extends \Magento\Catalog\Block\Product\AbstractProduct impl
      */
     public function getCategoryId()
     {
-        if ($this->_getData('id_path')) {
-            return $this->parseIdPath($this->_getData('id_path'))[1];
+        if ($this->getData('id_path')) {
+            return $this->getData('id_path');
         }
         return null;
     }

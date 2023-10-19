@@ -1,28 +1,60 @@
-<?php
-/**
- * @var \Mage\Cate\Block\Categories $block
- */
+<?php 
+$listCate = $block->collectionCategory()->getItems();
 
-$categories = $block->getChildrenCategories();
-
+$i = 1;
 ?>
-
-
-
-<div class="category-footer">
-    <h2 class='category-title'><?=$block->escapeHtml(__($block->getTitle()))?></h2>
-    <div class="content-block">
-        <?php foreach ($categories as $category): ?>
-            <div class="box-category col-xs-3 col-sm-3 col-md-2 col-lg-2 p-2 p-sm-3">
-                <a href="<?= $category->getUrl() ?>" class="a-hover-none a-hover-op">
-                <figure class='a-image' style='padding-bottom: 100%;'>
-                    <img src="<?= $category->getImageUrl() ?>">
-                </figure>
-                <h4 class="parent-category-title flex-center">
-                    <?= $category->getName() ?>
-                </h4>
-                </a>
+<div class="category-widget">
+    <div class="container">
+        <h2 class='category-title'><?=$block->escapeHtml(__($block->getTitle()))?></h2>   
+        <div class="category-item">
+            <?php foreach($listCate as $item):?>
+                <div class="item item-<?=$i?>">
+                    <a href="<?= $item->getUrl() ?>" class="a-hover-none a-hover-op">
+                        <figure class='a-image'>
+                            <img src="<?= $item->getImageUrl() ?>">
+                        </figure>
+                        <h4 class="parent-category-title">
+                            <?= $item->getName() ?>
+                        </h4>
+                    </a>
+                </div>
+                <?php $i++?>
+            <?php endforeach;?>
+        </div>
+        <div class="view-more">
+            <div class="actions">   
+                <button class="action primary down viewBtn">View more</button>
             </div>
-        <?php endforeach; ?>
+        </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    require(['jquery'], function($){
+        $('.viewBtn').click(function(e) {
+            e.preventDefault();
+
+            var $this = $(this);
+            $('.category-item .item:hidden').addClass('category-toggle');
+            $('.category-item .category-toggle').slideToggle(
+                {
+                    start: function(){
+                        $(this).css('display', 'inline-block');
+                    }
+                }
+            );
+
+            if($('.category-toggle').length > 0)
+            {
+                if($this.hasClass('down')){
+                    $this.removeClass('down');
+                    $this.addClass('up');
+                }else {
+                    $this.removeClass('up');
+                    $this.addClass('down');
+                }
+            }
+
+        });
+    })
+</script>
